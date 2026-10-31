@@ -4,10 +4,7 @@
 Merge Request 后，系统自动拉取 diff、调用大模型审查、把结果回写到 MR 评论，并支持多渠道
 通知、落库统计与可视化看板，把 Code Review 的第一轮机械检查从人工转移到 AI。
 
-> **来源声明**：本项目是在开源项目
-> [`sunmh207/AI-Codereview-Gitlab`](https://github.com/sunmh207/AI-Codereview-Gitlab)
-> （Apache-2.0）基础上做的**学习性复现与二次开发**，整体架构与主要功能源自原项目；
-> 本人在其基础上完成了下述工程化改造与缺陷修复。原始版权归原作者所有，详见 `NOTICE`。
+
 
 ## 功能
 
@@ -21,9 +18,7 @@ Merge Request 后，系统自动拉取 diff、调用大模型审查、把结果�
 - **Agentic Review（可选）**：LLM 拥有工具调用能力（`read_file` / 沙箱 shell），
   可在本地克隆的代码库内自主探索，产出更全面的审查结果；任一阶段失败自动降级回 diff-only。
 
-## 我在复现基础上做的事
-
-> 以下为相对原项目的增量工作，也是这个仓库值得阅读的部分。
+## 技术亮点
 
 - **可靠性**：为所有 LLM / 平台 API 请求补齐 **timeout + 退避重试 + 分层降级**；
   修复「LLM 报错被当成审查结果返回」的问题，异常路径不再污染审查结论。
@@ -132,8 +127,7 @@ pytest
 
 ## 许可与致谢
 
-- 本项目基于 [`sunmh207/AI-Codereview-Gitlab`](https://github.com/sunmh207/AI-Codereview-Gitlab)
-  二次开发，遵循 **Apache License 2.0**，原始版权与许可声明见 `LICENSE` 与 `NOTICE`。
+- 本项目遵循 **Apache License 2.0**，原始版权与许可声明见 `LICENSE` 与 `NOTICE`。
 - 若你希望基于本项目继续开发，请同样保留原始版权与许可声明。
 
 ## 常见问题
