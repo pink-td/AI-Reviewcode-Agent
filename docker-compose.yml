@@ -1,0 +1,15 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ai-codereview-gitlab:local
+    ports:
+      - "5001:5001"
+      - "5002:5002"
+    volumes:
+      - ./data:/app/data
+      - ./log:/app/log
+    env_file:
+      - ./conf/.env
+    restart: unless-stopped
